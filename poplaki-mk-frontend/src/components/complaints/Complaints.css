@@ -1,0 +1,6 @@
+.complaints {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: white !important;
+}

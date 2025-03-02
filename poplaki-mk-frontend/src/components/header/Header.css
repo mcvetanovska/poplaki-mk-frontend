@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+.actions {
+  display: flex;
+}
+.nav-link {
+  cursor: pointer;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+.search-bar input {
+  padding: 5px;
+  width: 250px;
+}
+.actions .login-btn,
+.actions .file-complaint-btn {
+  margin-left: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.file-complaint-btn {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+}

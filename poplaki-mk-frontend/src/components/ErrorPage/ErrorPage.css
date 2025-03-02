@@ -1,0 +1,92 @@
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    font-family: 'Inter', sans-serif;
+}
+  
+.error-container {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    background: #ffffff;
+    padding: 2rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+  
+.error-icon {
+    margin-bottom: 1.5rem;
+}
+  
+.icon-red {
+    color: #ef4444;
+}
+  
+.error-title {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+  
+.error-message {
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+  
+.error-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+  
+.action-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+}
+  
+.action-button.home {
+    background-color: #3b82f6;
+    color: white;
+}
+  
+.action-button.home:hover {
+    background-color: #2563eb;
+}
+  
+.action-button.retry {
+    background-color: #f9fafb;
+    color: #1f2937;
+    border: 1px solid #d1d5db;
+}
+  
+.action-button.retry:hover {
+    background-color: #e5e7eb;
+}
+  
+.error-help {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+  
+.support-link {
+    color: #3b82f6;
+    text-decoration: underline;
+}
+  
+.support-link:hover {
+    color: #2563eb;
+}

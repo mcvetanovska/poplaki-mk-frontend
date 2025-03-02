@@ -1,0 +1,90 @@
+.brands-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /* background-color: #f9f9f9; */
+}
+
+.brand-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.brand-logo img {
+  height: 50px;
+  width: auto;
+}
+
+.brand-info {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.brand-info h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.brand-info p {
+  margin: 5px 0 0;
+  color: #777;
+}
+
+.brand-score {
+  font-weight: bold;
+  color: #ff9900;
+}
+
+.brand-reviews {
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+.brand-complaints {
+  text-align: right;
+}
+
+.brand-complaints span {
+  display: block;
+  font-size: 0.9em;
+  color: #777;
+}
+
+.brand-complaints strong {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.brand-rating {
+  display: flex;
+  align-items: center;
+}
+
+.brand-rating i {
+  color: gold; /* Color the star icon */
+  margin-right: 8px; /* Add space between the icon and the score */
+  font-size: 1.2rem; /* Adjust the size of the icon */
+}
+
+.brand-score {
+  font-weight: bold;
+  margin-right: 8px; /* Add space between the score and the reviews */
+}
+
+.brand-reviews {
+  color: #555; /* Optional: Change color of reviews text */
+}
+
+@media (max-width: 768px) {
+  .brand-card {
+    padding: 10px 5px;
+  }
+}

@@ -1,0 +1,72 @@
+/* General styles for both forms */
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.auth-title {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.auth-button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.auth-button:hover {
+  background-color: #007bff;
+}
+
+.auth-button:focus {
+  outline: none;
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  .auth-container {
+    padding: 15px;
+  }
+
+  .auth-title {
+    font-size: 20px;
+  }
+
+  .auth-input {
+    font-size: 14px;
+  }
+
+  .auth-button {
+    font-size: 14px;
+  }
+}
