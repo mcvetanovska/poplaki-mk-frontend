@@ -29,7 +29,7 @@ export default function Landing() {
         setStats([
           {
             icon: MessageCircle,
-            label: "Активни Жалби",
+            label: "Активни Поплаки",
             value: complaintsCount.data,
           },
           {
@@ -110,7 +110,7 @@ export default function Landing() {
 
       {/* Recent Complaints */}
       <div className="complaints">
-        <h2>Неодамнешни Жалби</h2>
+        <h2>Неодамнешни Поплаки</h2>
         <div className="complaints-grid">
           {companies.map((company, index) => (
             <div key={company.id || index} className="complaint-card">
@@ -124,8 +124,8 @@ export default function Landing() {
                 />
                 <div>
                   <h3>{company.name || "Unknown Company"}</h3>
-                  <p className="mb-0">{`Вкупно жалби: ${company.totalComplaints}`}</p>
-                  <p className="complaint-text">{`Решени жалби: ${company.totalResolvedComplaints}`}</p>
+                  <p className="mb-0">{`Вкупно поплаки: ${company.totalComplaints}`}</p>
+                  <p className="complaint-text">{`Решени поплаки: ${company.totalResolvedComplaints}`}</p>
                 </div>
               </div>
               {/* <div className="complaint-footer">

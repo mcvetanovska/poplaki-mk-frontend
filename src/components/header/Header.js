@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './Header.css';
-import { UserContext } from '../../context/UserContext';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Header.css";
+import { UserContext } from "../../context/UserContext";
+import { Navbar, Nav, Container } from "react-bootstrap";
 
 function Header() {
   const navigate = useNavigate();
@@ -11,14 +11,14 @@ function Header() {
   const handleLogout = (e) => {
     e.preventDefault();
     setUser(null);
-    navigate('/complaints');
+    navigate("/complaints");
   };
 
   const checkUserAndNavigate = () => {
     if (user) {
-      navigate('/file-complaint');
+      navigate("/file-complaint");
     } else {
-      navigate('/login');
+      navigate("/login");
     }
   };
 
@@ -34,14 +34,14 @@ function Header() {
         <Container>
           <Navbar.Brand
             className="logo"
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
             onClick={() => {
-              navigate('/');
+              navigate("/");
             }}
           >
             <img
               src="./icons/logo-no-bg.png"
-              alt="zalba.mk"
+              alt="poplaki.mk"
               style={{ width: 120 }}
             />
           </Navbar.Brand>
@@ -57,7 +57,7 @@ function Header() {
               <div className="d-flex ml-lg-auto align-items-center flex-wrap flex-lg-row flex-column text-lg-left text-center">
                 {user && user.payload ? (
                   <div className="d-flex flex-column flex-lg-row align-items-center">
-                    {user.payload.role === 'ADMIN' && (
+                    {user.payload.role === "ADMIN" && (
                       <Link to="/dashboard" className="nav-link">
                         Админ
                       </Link>
@@ -84,8 +84,8 @@ function Header() {
                     className="file-complaint-btn"
                     style={{
                       width: 180,
-                      textAlign: 'center',
-                      backgroundColor: '#2563eb',
+                      textAlign: "center",
+                      backgroundColor: "#2563eb",
                     }}
                     onClick={checkUserAndNavigate}
                   >

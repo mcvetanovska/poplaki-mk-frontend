@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Footer.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Footer.css";
 
 const Footer = () => {
   return (
@@ -18,13 +18,13 @@ const Footer = () => {
             <br></br>
             <ul>
               <li>
-                <Link to="/file-complaint">Додај жалба</Link>
+                <Link to="/file-complaint">Додај поплака</Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© 2024 ZALBA.MK Сите права задржани.</p>
+          <p>© 2024 POPLAKI.MK Сите права задржани.</p>
         </div>
       </footer>
     </div>
