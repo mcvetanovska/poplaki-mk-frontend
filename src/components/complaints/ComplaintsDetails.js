@@ -26,7 +26,7 @@ function ComplaintsDetails() {
         <div className="complaints d-flex justify-content-center align-items-start flex-column">
           <div className="d-flex justify-content-center align-items-center flex-column">
             <img
-              src={complaint.company.logo}
+              src={`http://localhost:8080/uploads/logos/${complaint.company.logo}`}
               alt={`${complaint.company.logo} logo`}
               style={{ width: 80 }}
             />

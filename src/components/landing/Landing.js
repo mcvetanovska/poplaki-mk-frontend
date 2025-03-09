@@ -116,10 +116,7 @@ export default function Landing() {
             <div key={company.id || index} className="complaint-card">
               <div className="complaint-header">
                 <img
-                  src={
-                    company.logo ||
-                    `https://source.unsplash.com/random/40x40?sig=${index}`
-                  }
+                  src={`http://localhost:8080/uploads/logos/${company.logo}`}
                   alt={company.name || "Brand Logo"}
                 />
                 <div>

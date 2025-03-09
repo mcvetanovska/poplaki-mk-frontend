@@ -8,6 +8,7 @@
     "cra-template": "1.2.0",
     "lucide-react": "^0.469.0",
     "poplaki-mk": "file:",
+    "poplaki-mk-frontend": "file:",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.7",
     "react-dom": "^19.0.0",

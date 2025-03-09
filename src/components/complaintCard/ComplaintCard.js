@@ -22,14 +22,15 @@ function ComplaintCard({ complaint }) {
       <div
         onClick={() => {
           navigate(`/complaints/${complaint.id}`);
-        }}>
+        }}
+      >
         {/* <h2>{complaint.title}</h2> */}
         <div className="text-left"></div>
         <div className="complaint-meta">
           <span>
             <img
-              src={complaint.company.logo}
-              alt={`${complaint.company.logo} logo`}
+              src={`http://localhost:8080/uploads/logos/${complaint.company.logo}`}
+              alt={`${complaint.company.name} logo`}
               style={{ width: 50 }}
             />
             → {complaint?.company?.name}
@@ -44,7 +45,8 @@ function ComplaintCard({ complaint }) {
         window.location.href.includes("dashboard") && (
           <button
             className="form-button"
-            onClick={() => handleAccept(complaint.id)}>
+            onClick={() => handleAccept(complaint.id)}
+          >
             Прифати поплака
           </button>
         )}

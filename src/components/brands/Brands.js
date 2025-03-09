@@ -9,25 +9,36 @@ function Brands() {
   const navigate = useNavigate();
   const [brandsData, setBrandsData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
+    fetchBrands(currentPage);
+  }, [currentPage]);
+
+  const fetchBrands = (page) => {
     api
-      .get("/companies/pageable?page=0&size=10")
+      .get(`/companies/pageable?page=${page}&size=10`)
       .then((data) => {
         if (data) {
           setBrandsData(data.data.content);
+          setTotalPages(data.data.totalPages);
         }
       })
       .catch((err) => console.log(err));
-  }, []);
-
-  const filteredBrands = brandsData.filter((brand) =>
-    brand.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  };
 
   const handleNavigate = (id) => {
     navigate(`/brand/${id}`);
   };
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  const filteredBrands = brandsData.filter((brand) =>
+    brand.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <CustomContainer>
@@ -52,7 +63,10 @@ function Brands() {
             <div className="brand-card" key={brand.id}>
               <div style={{ minWidth: "80px" }}>
                 <div className="brand-logo">
-                  <img src={brand.logo} alt={`${brand.name} logo`} />
+                  <img
+                    src={`http://localhost:8080/uploads/logos/${brand.logo}`}
+                    alt={`${brand.name} logo`}
+                  />
                 </div>
               </div>
 
@@ -73,6 +87,24 @@ function Brands() {
               </div>
             </div>
           ))}
+
+          <div className="pagination">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 0}
+            >
+              Previous
+            </button>
+            <span>
+              Page {currentPage + 1} of {totalPages}
+            </span>
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages - 1}
+            >
+              Next
+            </button>
+          </div>
         </div>
       )}
     </CustomContainer>
