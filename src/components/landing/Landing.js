@@ -112,22 +112,27 @@ export default function Landing() {
       <div className="complaints">
         <h2>Неодамнешни Поплаки</h2>
         <div className="complaints-grid">
-          {companies.map((company, index) => (
-            <div key={company.id || index} className="complaint-card">
-              <div className="complaint-header">
-                <img
-                  src={`http://localhost:8080/uploads/logos/${company.logo}`}
-                  alt={company.name || "Brand Logo"}
-                />
-                <div>
-                  <h3>{company.name || "Unknown Company"}</h3>
-                  <p className="mb-0">{`Вкупно поплаки: ${company.totalComplaints}`}</p>
-                  <p className="complaint-text">{`Решени поплаки: ${company.totalResolvedComplaints}`}</p>
-                </div>
-              </div>
-              {/* <div className="complaint-footer">
-                        <span className="read-more" onClick={() => handleNavigate(company.id)}>Погледни детали</span>
-                    </div> */}
+          {companies.map((company) => (
+            <div
+              key={company.id}
+              className="brand-card"
+              onClick={() => handleNavigate(company.id)}
+            >
+              <img
+                src={`http://localhost:8080/uploads/logos/${company.logo}`}
+                alt={`${company.name} logo`}
+                className="brand-logo"
+              />
+              <h3 className="brand-name">{company.name}</h3>
+              <p
+                className="brand-stats"
+                style={{ color: "orange", marginRight: "15px" }}
+              >
+                Вкупно поплаки: {company.totalComplaints}
+              </p>
+              {/* <p className="brand-stats">
+                Решени поплаки: {company.totalResolvedComplaints}
+              </p> */}
             </div>
           ))}
         </div>

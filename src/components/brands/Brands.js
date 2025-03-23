@@ -4,6 +4,10 @@ import api from "../../axios/axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../loader/Loader";
 import CustomContainer from "../customContainer/CustomContainer";
+import Pagination from "@mui/material/Pagination";
+import PaginationItem from "@mui/material/PaginationItem";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 function Brands() {
   const navigate = useNavigate();
@@ -11,29 +15,35 @@ function Brands() {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(9); // Set to 9 items per page
 
   useEffect(() => {
-    fetchBrands(currentPage);
-  }, [currentPage]);
+    fetchBrands(currentPage, rowsPerPage);
+  }, [currentPage, rowsPerPage]);
 
-  const fetchBrands = (page) => {
+  const fetchBrands = (page, size) => {
     api
-      .get(`/companies/pageable?page=${page}&size=10`)
+      .get(`/companies/pageable?page=${page}&size=${size}`)
       .then((data) => {
-        if (data) {
-          setBrandsData(data.data.content);
-          setTotalPages(data.data.totalPages);
+        if (data && data.data) {
+          setBrandsData(data.data.content); // Update brands data
+          setTotalPages(data.data.totalPages); // Update total pages
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error("Error fetching brands:", err));
   };
 
   const handleNavigate = (id) => {
     navigate(`/brand/${id}`);
   };
 
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
+  const handleChangePage = (event, newPage) => {
+    setCurrentPage(newPage - 1); // Adjust for zero-based indexing
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setCurrentPage(0);
   };
 
   const filteredBrands = brandsData.filter((brand) =>
@@ -56,23 +66,25 @@ function Brands() {
               placeholder="Search for brand"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              className="search-input"
             />
           </div>
 
-          {filteredBrands.map((brand) => (
-            <div className="brand-card" key={brand.id}>
-              <div style={{ minWidth: "80px" }}>
+          <div className="brands-grid">
+            {filteredBrands.map((brand) => (
+              <div
+                className="brand-card"
+                key={brand.id}
+                onClick={() => handleNavigate(brand.id)}
+              >
                 <div className="brand-logo">
                   <img
                     src={`http://localhost:8080/uploads/logos/${brand.logo}`}
                     alt={`${brand.name} logo`}
                   />
                 </div>
-              </div>
-
-              <div className="brand-info">
-                <h3>{brand.name}</h3>
-                <div>
+                <div className="brand-info">
+                  <h3>{brand.name}</h3>
                   <div className="brand-rating">
                     <span className="brand-score">
                       <span style={{ color: "orange", marginRight: "15px" }}>
@@ -85,26 +97,20 @@ function Brands() {
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-
-          <div className="pagination">
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 0}
-            >
-              Previous
-            </button>
-            <span>
-              Page {currentPage + 1} of {totalPages}
-            </span>
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages - 1}
-            >
-              Next
-            </button>
+            ))}
           </div>
+
+          <Pagination
+            count={totalPages} // Use totalPages from state
+            page={currentPage + 1} // Adjust for one-based indexing
+            onChange={handleChangePage}
+            renderItem={(item) => (
+              <PaginationItem
+                slots={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
+                {...item}
+              />
+            )}
+          />
         </div>
       )}
     </CustomContainer>

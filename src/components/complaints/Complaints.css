@@ -1,6 +1,188 @@
 .complaints {
   display: flex;
   flex-direction: column;
-  gap: 15px;
   background-color: white !important;
+  width: 120vh;
+}
+
+.complaint-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px 0px 20px 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.complaint-details-header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 14px;
+  color: #888;
+}
+
+.company-details-logo {
+  width: 50px;
+  height: auto;
+  padding-bottom: 3px;
+}
+
+.company-name {
+  font-size: 1rem;
+  color: #333;
+  opacity: 0.7;
+}
+
+.complaint-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.complaint-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.complaint-description {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.voting-section {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.vote-count {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.comments-section {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.comments-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-item {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.comment-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 30px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.comment-user-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.comment-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1;
+  margin-left: 66px;
+}
+
+.comment-input {
+  width: 93%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 1rem;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.vote-button {
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.vote-button.upvote {
+  color: green;
+}
+
+.vote-button.downvote {
+  color: red;
+}
+
+.vote-button:hover {
+  transform: scale(1.2);
+}
+
+.comment-user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.comment-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.comment-content strong {
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-button {
+  padding: 5px 10px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  float: right;
+  margin-right: 30px;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
 }

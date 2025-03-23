@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import './Dashboard.css';
-import { Link } from 'react-router-dom';
-import api from '../../axios/axios';
-import ComplaintCard from '../complaintCard/ComplaintCard';
+import React, { useEffect, useState } from "react";
+import "./Dashboard.css";
+import { Link } from "react-router-dom";
+import api from "../../axios/axios";
+import ComplaintCard from "../complaintCard/ComplaintCard";
 
 function Dashboard() {
-  const [active, setActive] = useState('complaints');
+  const [active, setActive] = useState("complaints");
   const [brandsData, setBrandsData] = useState([]);
   const [complaintsData, setComplaintsData] = useState([]);
 
   useEffect(() => {
     api
-      .get('/companies/pageable?page=0&size=10')
+      .get("/companies/pageable?page=0&size=10")
       .then((data) => {
         if (data) {
           setBrandsData(data.data.content);
@@ -20,7 +20,7 @@ function Dashboard() {
       .catch((err) => console.log(err));
     api
       .get(
-        '/admin/complaints/pageable?page=0&size=10&sortBy=createdOn&sortDirection=DESC&type=PENDING'
+        "/admin/complaints/pageable?page=0&size=10&sortBy=createdOn&sortDirection=DESC&type=PENDING"
       )
       .then((data) => {
         if (data) {
@@ -31,7 +31,7 @@ function Dashboard() {
   }, []);
 
   return (
-    <div style={{ display: 'flex', color: 'white' }}>
+    <div style={{ display: "flex", color: "white" }}>
       <div className="sidebar">
         <div className="sidebar-header">
           <div className="logo">
@@ -46,15 +46,15 @@ function Dashboard() {
               <span className="menu-text">Дома</span>
             </Link>
             <span
-              onClick={() => setActive('complaints')}
-              className={`menu-item ${active === 'complaints' ? 'active' : ''}`}
+              onClick={() => setActive("complaints")}
+              className={`menu-item ${active === "complaints" ? "active" : ""}`}
             >
               <i className="fa fa-exclamation-circle menu-icon"></i>
               <span className="menu-text">Поплаки</span>
             </span>
             <span
-              onClick={() => setActive('brands')}
-              className={`menu-item ${active === 'brands' ? 'active' : ''}`}
+              onClick={() => setActive("brands")}
+              className={`menu-item ${active === "brands" ? "active" : ""}`}
             >
               <i className="fa fa-tags menu-icon"></i>
               <span className="menu-text">Брендови</span>
@@ -65,9 +65,9 @@ function Dashboard() {
 
       {/* Main Content */}
       <div className="main-content container">
-        {active === 'complaints' ? (
+        {active === "complaints" ? (
           <div className="complaints-list p-0">
-            <p style={{ color: '#000' }}>{complaintsData.length} поплаки</p>
+            <p style={{ color: "#000" }}>{complaintsData.length} поплаки</p>
             <div className="complaints">
               <ul className="p-0">
                 {complaintsData.length > 0 ? (
@@ -82,12 +82,15 @@ function Dashboard() {
           </div>
         ) : (
           <div className="brands-container">
-            <p style={{ color: '#000' }}>{brandsData.length} брендови</p>
+            <p style={{ color: "#000" }}>{brandsData.length} брендови</p>
             {brandsData.map((brand) => (
               <div className="brand-card" key={brand.id}>
-                <div style={{ minWidth: '80px' }}>
+                <div style={{ minWidth: "80px" }}>
                   <div className="brand-logo">
-                    <img src={brand.logo} alt={`${brand.name} logo`} />
+                    <img
+                      src={`http://localhost:8080/uploads/logos/${brand.logo}`}
+                      alt={`${brand.name} logo`}
+                    />
                   </div>
                 </div>
 
@@ -100,7 +103,7 @@ function Dashboard() {
                           Вкупно: {brand.totalComplaints}
                         </span>
                         <span className="text-success">
-                          Решени:{' '}
+                          Решени:{" "}
                           {brand.totalComplaints -
                             brand.totalResolvedComplaints}
                         </span>
