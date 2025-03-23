@@ -326,7 +326,6 @@
   text-align: center;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
@@ -354,7 +353,6 @@
   }
 }
 
-/* Hero Section */
 .hero {
   background: linear-gradient(to right, #2563eb, #1d4ed8);
   color: white;
@@ -415,11 +413,6 @@
 
 .search-box button:hover {
   background: #1d4ed8;
-}
-
-/* Stats Section */
-.stats-wrapper {
-  /* background: #f9fafb; */
 }
 
 .stats {
@@ -506,9 +499,9 @@
   transform: translateX(0.25rem);
 }
 
-/* Complaints Section */
 .complaints {
   background: #f9fafb;
+  width: auto;
 }
 
 .complaints h2 {

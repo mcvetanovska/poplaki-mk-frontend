@@ -15,7 +15,7 @@ function Brands() {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(9); // Set to 9 items per page
+  const [rowsPerPage, setRowsPerPage] = useState(12);
 
   useEffect(() => {
     fetchBrands(currentPage, rowsPerPage);
@@ -26,8 +26,8 @@ function Brands() {
       .get(`/companies/pageable?page=${page}&size=${size}`)
       .then((data) => {
         if (data && data.data) {
-          setBrandsData(data.data.content); // Update brands data
-          setTotalPages(data.data.totalPages); // Update total pages
+          setBrandsData(data.data.content);
+          setTotalPages(data.data.totalPages);
         }
       })
       .catch((err) => console.error("Error fetching brands:", err));
@@ -38,7 +38,7 @@ function Brands() {
   };
 
   const handleChangePage = (event, newPage) => {
-    setCurrentPage(newPage - 1); // Adjust for zero-based indexing
+    setCurrentPage(newPage - 1);
   };
 
   const handleChangeRowsPerPage = (event) => {
@@ -101,8 +101,8 @@ function Brands() {
           </div>
 
           <Pagination
-            count={totalPages} // Use totalPages from state
-            page={currentPage + 1} // Adjust for one-based indexing
+            count={totalPages}
+            page={currentPage + 1}
             onChange={handleChangePage}
             renderItem={(item) => (
               <PaginationItem

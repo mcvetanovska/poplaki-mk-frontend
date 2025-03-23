@@ -50,49 +50,31 @@ const BrandDetails = () => {
   return (
     <CustomContainer minHeight={90}>
       {brand ? (
-        <div style={{ minHeight: "80vh" }}>
+        <div className="brand-details-container">
           <div className="container">
-            <div className="brand-header">
-              <div className="d-flex justify-content-center align-items-center">
+            <div className="brand-header mb-4">
+              <div className="d-flex justify-content-start align-items-center header-logo">
                 <img
                   src={`http://localhost:8080/uploads/logos/${brand.logo}`}
                   alt={brand.logo}
-                  style={{ width: 150 }}
                 />
-                <h2 className="ml-4 mb-0">{brand.name}</h2>
               </div>
-              <p>{brand.description}</p>
+              <h2 className="brand-details-name">{brand.name}</h2>
             </div>
 
             <div className="complaints-list">
-              <h3>Complaints</h3>
+              <h3>Поплаки</h3>
               {complaints.length > 0 ? (
                 complaints.map((complaint) => (
                   <div key={complaint.id} className="complaint-card">
                     <h4>{complaint.title}</h4>
                     <p>{complaint.description}</p>
-                    <div className="complaint-meta">
-                      <span>Status: {complaint.status}</span>
-                      <span>
-                        Created At:{" "}
-                        {new Date(complaint.createdAt).toLocaleDateString()}
-                      </span>
-                    </div>
                   </div>
                 ))
               ) : (
-                <p>No complaints found for this brand.</p>
+                <p>Нема поплаки за овај бренд.</p>
               )}
             </div>
-
-            <TablePagination
-              component="div"
-              count={totalComplaints}
-              page={currentPage}
-              onPageChange={handleChangePage}
-              rowsPerPage={rowsPerPage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
           </div>
         </div>
       ) : (
