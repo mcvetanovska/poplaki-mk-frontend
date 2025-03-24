@@ -27,30 +27,32 @@ function Signup() {
   };
 
   return (
-    <CustomContainer minHeight={80}>
-      <div className="auth-container">
-        <h2 className="auth-title">Регистрација</h2>
-        <form className="auth-form" onSubmit={handleSignup}>
-          <input
-            className="auth-input"
-            type="email"
-            placeholder="Е-маил"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            className="auth-input"
-            type="password"
-            placeholder="Лозинка"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button className="auth-button" type="submit">
-            Регистрирај се
-          </button>
-        </form>
+    <CustomContainer>
+      <div className="auth-wrapper">
+        <div className="auth-container">
+          <h2 className="auth-title">Регистрација</h2>
+          <form className="auth-form" onSubmit={handleSignup}>
+            <input
+              className="auth-input"
+              type="email"
+              placeholder="Е-маил"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              className="auth-input"
+              type="password"
+              placeholder="Лозинка"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button className="auth-button" type="submit">
+              Регистрирај се
+            </button>
+          </form>
+        </div>
       </div>
     </CustomContainer>
   );

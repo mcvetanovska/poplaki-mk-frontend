@@ -83,9 +83,8 @@ function Header() {
                   <button
                     className="file-complaint-btn"
                     style={{
-                      width: 180,
+                      width: 150,
                       textAlign: "center",
-                      backgroundColor: "#2563eb",
                     }}
                     onClick={checkUserAndNavigate}
                   >

@@ -12,10 +12,32 @@
 .form-button {
   padding: 12px;
   font-size: 16px;
-  background-color: #007bff;
+  background-color: #ea8c45;
   color: white;
   border: none;
   border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.form-button:hover {
+  background-color: #cc6924;
+}
+
+.dashboard-specific-button {
+  width: 150px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #ea8c45;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.dashboard-specific-button:hover {
+  background-color: #cc6924;
 }

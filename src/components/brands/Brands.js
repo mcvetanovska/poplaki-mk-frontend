@@ -100,17 +100,19 @@ function Brands() {
             ))}
           </div>
 
-          <Pagination
-            count={totalPages}
-            page={currentPage + 1}
-            onChange={handleChangePage}
-            renderItem={(item) => (
-              <PaginationItem
-                slots={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
-                {...item}
-              />
-            )}
-          />
+          <div className="pagination-container">
+            <Pagination
+              count={totalPages}
+              page={currentPage + 1}
+              onChange={handleChangePage}
+              renderItem={(item) => (
+                <PaginationItem
+                  slots={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
+                  {...item}
+                />
+              )}
+            />
+          </div>
         </div>
       )}
     </CustomContainer>

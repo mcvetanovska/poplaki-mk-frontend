@@ -1,10 +1,16 @@
 .header {
+  position: static;
+  z-index: 1000;
+  width: 125vh;
+  margin: 20px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 7px 10px;
   background-color: #f8f9fa;
-  border-bottom: 1px solid #ddd;
+  border: 0.5px solid #ddd;
+  border-radius: 30px;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.2);
 }
 .actions {
   display: flex;
@@ -12,10 +18,7 @@
 .nav-link {
   cursor: pointer;
 }
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
+
 .nav a {
   margin: 0 10px;
   text-decoration: none;
@@ -32,7 +35,12 @@
   cursor: pointer;
 }
 .file-complaint-btn {
-  background-color: #6c63ff;
   color: white;
+  background-color: #ea8c45;
   border: none;
+  border-radius: 10px;
+}
+
+.file-complaint-btn:hover {
+  background-color: #cc6924;
 }

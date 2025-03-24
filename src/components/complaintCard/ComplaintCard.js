@@ -44,7 +44,7 @@ function ComplaintCard({ complaint }) {
       {complaint.statusType == "PENDING" &&
         window.location.href.includes("dashboard") && (
           <button
-            className="form-button"
+            className="dashboard-specific-button"
             onClick={() => handleAccept(complaint.id)}
           >
             Прифати поплака

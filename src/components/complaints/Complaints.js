@@ -66,12 +66,13 @@ function Complaints() {
   };
 
   return (
-    <CustomContainer minHeight={80}>
-      <div className="complaints-list p-0">
-        <div className="complaints pt-3">
+    <CustomContainer>
+      <div className="complaints-list">
+        <div className="complaints">
           {/* Search Bar */}
-          <div className="search-bar mb-3 d-flex justify-content-center">
+          <div className="search-bar">
             <input
+              className="search-input"
               type="text"
               placeholder="Барај поплака"
               value={searchQuery}
@@ -81,7 +82,7 @@ function Complaints() {
 
           {/* Complaints List */}
           {loading ? (
-            <CustomContainer minHeight={80}>
+            <CustomContainer>
               <Loader />
             </CustomContainer>
           ) : (
