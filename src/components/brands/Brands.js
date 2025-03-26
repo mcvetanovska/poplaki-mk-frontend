@@ -23,7 +23,9 @@ function Brands() {
 
   const fetchBrands = (page, size) => {
     api
-      .get(`/companies/pageable?page=${page}&size=${size}`)
+      .get(
+        `/companies/pageable?page=${page}&size=${size}&sortBy=logo&sortDirection=DESC`
+      )
       .then((data) => {
         if (data && data.data) {
           setBrandsData(data.data.content);

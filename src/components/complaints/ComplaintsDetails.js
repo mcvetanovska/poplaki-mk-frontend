@@ -53,7 +53,15 @@ function ComplaintsDetails() {
   };
 
   return (
-    <CustomContainer minHeight={90}>
+    <div
+      className="d-flex justify-content-start align-items-center"
+      style={{
+        minHeight: `80vh`,
+        width: "80%",
+        margin: "0 auto",
+        flexDirection: "column",
+      }}
+    >
       {complaint ? (
         <div className="complaints">
           {/* Complaint Details */}
@@ -71,7 +79,7 @@ function ComplaintsDetails() {
               <p className="complaint-description">{complaint.description}</p>
             </div>
 
-            <div className="voting-section d-flex gap-2 align-items-center mt-3">
+            <div className="voting-section d-flex gap-2">
               <button
                 onClick={() => handleVote(true)}
                 className="vote-button upvote"
@@ -88,7 +96,7 @@ function ComplaintsDetails() {
             </div>
           </div>
 
-          <div className="comments-section mt-4">
+          <div className="comments-section mt-4 mb-4">
             <h3>Коментари</h3>
             <ul className="comments-list">
               {comments.length > 0 ? (
@@ -129,7 +137,7 @@ function ComplaintsDetails() {
       ) : (
         <Loader />
       )}
-    </CustomContainer>
+    </div>
   );
 }
 

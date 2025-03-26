@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../axios/axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // Import useNavigate
 import CustomContainer from "../customContainer/CustomContainer";
 import Loader from "../../loader/Loader";
 import TablePagination from "@mui/material/TablePagination";
@@ -12,6 +12,7 @@ const BrandDetails = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [totalComplaints, setTotalComplaints] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     api
@@ -48,7 +49,15 @@ const BrandDetails = () => {
   };
 
   return (
-    <CustomContainer minHeight={90}>
+    <div
+      className="d-flex justify-content-start align-items-center"
+      style={{
+        width: "80%",
+        margin: "0 auto",
+        flexDirection: "column",
+        marginTop: "10px",
+      }}
+    >
       {brand ? (
         <div className="brand-details-container">
           <div className="container">
@@ -66,7 +75,12 @@ const BrandDetails = () => {
               <h3>Поплаки</h3>
               {complaints.length > 0 ? (
                 complaints.map((complaint) => (
-                  <div key={complaint.id} className="complaint-card">
+                  <div
+                    key={complaint.id}
+                    className="complaint-card"
+                    onClick={() => navigate(`/complaints/${complaint.id}`)}
+                    style={{ cursor: "pointer" }}
+                  >
                     <h4>{complaint.title}</h4>
                     <p>{complaint.description}</p>
                   </div>
@@ -80,7 +94,7 @@ const BrandDetails = () => {
       ) : (
         <Loader />
       )}
-    </CustomContainer>
+    </div>
   );
 };
 

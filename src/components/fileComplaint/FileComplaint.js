@@ -14,7 +14,7 @@ function FileComplaint() {
 
   useEffect(() => {
     api
-      .get("/companies/pageable?page=0&size=10")
+      .get("/companies/pageable?page=0&size=10&sortBy=logo&sortDirection=DESC")
       .then((data) => {
         if (data) {
           setBrandsData(data.data.content);
@@ -71,7 +71,8 @@ function FileComplaint() {
           name="companyId"
           value={formData.companyId}
           onChange={handleChange}
-          required>
+          required
+        >
           <option value="" disabled>
             Изберете бренд
           </option>

@@ -3,12 +3,15 @@
   padding: 15px;
   border-radius: 5px;
   background-color: #fff;
+  width: 120vh;
 }
+
 .complaint-meta {
   font-size: 0.9rem;
   color: #555;
   margin-bottom: 10px;
 }
+
 .form-button {
   padding: 12px;
   font-size: 16px;
@@ -40,4 +43,27 @@
 
 .dashboard-specific-button:hover {
   background-color: #cc6924;
+}
+
+.dashboard-specific-button.accept-button {
+  background-color: #28a745;
+}
+
+.dashboard-specific-button.accept-button:hover {
+  background-color: #218838;
+}
+
+.dashboard-specific-button.decline-button {
+  background-color: #dc3545;
+}
+
+.dashboard-specific-button.decline-button:hover {
+  background-color: #c82333;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
 }

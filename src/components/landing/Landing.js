@@ -53,10 +53,12 @@ export default function Landing() {
 
   useEffect(() => {
     api
-      .get("/companies/pageable?page=0&size=6") // Fetch only 6 items
+      .get(
+        "/companies/pageable?page=0&size=6&sortBy=totalComplaints&sortDirection=DESC"
+      )
       .then((response) => {
         if (response && response.data.content) {
-          setCompanies(response.data.content); // Set the fetched data
+          setCompanies(response.data.content);
         }
       })
       .catch((err) => console.error("Error fetching companies:", err));
@@ -109,7 +111,7 @@ export default function Landing() {
       </div>
 
       {/* Recent Complaints */}
-      <div className="complaints">
+      <div className="complaints-landing" style={{ backgroundColor: "white" }}>
         <h2>Неодамнешни Поплаки</h2>
         <div className="complaints-grid">
           {companies.map((company) => (

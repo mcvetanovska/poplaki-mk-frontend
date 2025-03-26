@@ -19,7 +19,7 @@ function Signup() {
     api
       .post("/users", body)
       .then((response) => {
-        navigate("/complaints");
+        navigate("/login");
       })
       .catch((error) => {
         console.error("Error:", error);
